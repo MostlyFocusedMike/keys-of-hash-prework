@@ -10,8 +10,13 @@ class Hash
     return keys.length != 0 ? keys : nil 
     # just to be nice, a nil value if no keys are found
   end
+  
+  def keys_of2(*args)
+    # the self is implicit apparently?
+    map {|key, value| args.include?(value) ? key : nil }.compact
+  end
 end
 
 animals = {"sugar glider"=>"Australia","aye-aye"=> "Madagascar","red-footed tortoise"=>"Panama","kangaroo"=> "Australia","tomato frog"=>"Madagascar","koala"=>"Australia"}
 
-# binding.pry
+binding.pry
